@@ -28,7 +28,7 @@
         border: 2px solid red
       }
 
-      h2{
+      h2, button{
         text-transform: uppercase
       }
     </style>
@@ -47,10 +47,9 @@
       <h2>create</h2>
       <form action="/create"  method="POST">
         @csrf
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
-        <button>create</button>
+        <input type="text" name="title" placeholder="post title">
+        <textarea name="body" placeholder="body content..."></textarea>
+        <button>save post</button>
       </form>
     </div>
 
