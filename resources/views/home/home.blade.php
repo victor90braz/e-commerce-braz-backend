@@ -31,7 +31,8 @@
 <body>
   <div class="container">
     <h2>register</h2>
-    <form action="">
+    <form action="/register"  method="POST">
+      @csrf
       <input type="text" name="name" placeholder="name">
       <input type="text" name="email" placeholder="email">
       <input type="password" name="password" placeholder="password">
