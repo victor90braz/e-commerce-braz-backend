@@ -35,12 +35,27 @@
 </head>
 <body>
   @auth
-    <p>Congrats you are logged in.</p>
-    <form action="./logout" method="POST">
-    @csrf
-    <button>Log Out</button>
-    </form>
+    <div class="container-logout">
+      <p>Congrats you are logged in.</p>
+      <form action="./logout" method="POST">
+      @csrf
+      <button>Log Out</button>
+      </form>
+    </div>
+
+    <div class="container-create">
+      <h2>create</h2>
+      <form action="/create"  method="POST">
+        @csrf
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <button>create</button>
+      </form>
+    </div>
+
   @else
+
     <div class="container-register">
       <h2>register</h2>
       <form action="/register"  method="POST">
@@ -51,6 +66,7 @@
         <button>Register</button>
       </form>
     </div>
+
     <div class="container-login">
       <h2>login</h2>
       <form action="/login"  method="POST">
@@ -60,6 +76,7 @@
         <button>login</button>
       </form>
     </div>
+
   @endauth
 </body>
 </html>
