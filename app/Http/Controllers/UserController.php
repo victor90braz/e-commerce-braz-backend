@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-  public function home() {
+    public function home() {
         return view('home/home');
     }
 
@@ -28,4 +28,10 @@ class UserController extends Controller
 
       return redirect("/");
     }
+
+    public function logout() {
+      auth()->logout();
+
+      return redirect("/");
+  }
 }

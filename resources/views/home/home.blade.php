@@ -31,6 +31,10 @@
 <body>
   @auth
     <p>Congrats you are login in.</p>
+    <form action="./logout" method="POST">
+    @csrf
+    <button>Log Out</button>
+    </form>
   @else
     <div class="container">
       <h2>register</h2>
