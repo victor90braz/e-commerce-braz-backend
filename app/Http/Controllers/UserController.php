@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -19,6 +20,9 @@ class UserController extends Controller
       ];
 
       $incomingFields = $request->validate($checkFields);
+      $incomingFields["password"] = bcrypt($incomingFields["password"]);
+
+      User::create($incomingFields);
 
       return  $incomingFields;
     }
