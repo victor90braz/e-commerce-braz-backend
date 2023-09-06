@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "php artisan serve"
+    "start": "php artisan serve",
+    "php-artisan": "php artisan make:controller PostController"
   },
   "devDependencies": {
     "axios": "^1.1.2",
