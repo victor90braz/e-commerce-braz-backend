@@ -6,3 +6,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, "home"]);
 Route::post('/register', [UserController::class, "register"]);
 Route::post('/logout', [UserController::class, "logout"]);
+Route::post('/login', [UserController::class, "login"]);

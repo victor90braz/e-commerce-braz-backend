@@ -19,8 +19,13 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      .container{
-        border: 2px solid black
+      .container-register{
+        border: 2px solid black;
+        margin-bottom: 10px
+      }
+
+      .container-login{
+        border: 2px solid red
       }
 
       h2{
@@ -30,13 +35,13 @@
 </head>
 <body>
   @auth
-    <p>Congrats you are login in.</p>
+    <p>Congrats you are logged in.</p>
     <form action="./logout" method="POST">
     @csrf
     <button>Log Out</button>
     </form>
   @else
-    <div class="container">
+    <div class="container-register">
       <h2>register</h2>
       <form action="/register"  method="POST">
         @csrf
@@ -44,6 +49,15 @@
         <input type="text" name="email" placeholder="email">
         <input type="password" name="password" placeholder="password">
         <button>Register</button>
+      </form>
+    </div>
+    <div class="container-login">
+      <h2>login</h2>
+      <form action="/login"  method="POST">
+        @csrf
+        <input type="text" name="loginname" placeholder="name">
+        <input type="password" name="loginpassword" placeholder="password">
+        <button>login</button>
       </form>
     </div>
   @endauth

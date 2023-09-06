@@ -14,11 +14,11 @@ class UserController extends Controller
 
     public function register(Request $request) {
 
-      $checkFields = [
+      $checkFields = ([
         "name"=> ["required", "min:3", "max:20", Rule::unique("users", "name")],
         "email"=> ["required", "email", Rule::unique("users", "email")],
         "password"=> ["required", "min:3", "max:20"],
-      ];
+      ]);
 
       $incomingFields = $request->validate($checkFields);
       $incomingFields["password"] = bcrypt($incomingFields["password"]);
@@ -33,5 +33,21 @@ class UserController extends Controller
       auth()->logout();
 
       return redirect("/");
+    }
+
+    public function login(Request $request) {
+
+      $credentials = [
+          "name" => $request->input("loginname"),
+          "password" => $request->input("loginpassword"),
+      ];
+
+      if (auth()->attempt($credentials)) {
+          $request->session()->regenerate();
+          return redirect("/");
+      }
+
+      return redirect("/");
   }
+
 }
