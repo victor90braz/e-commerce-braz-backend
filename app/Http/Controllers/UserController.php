@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   public function register() {
-    return  " hello from our controller";
-   }
+  public function home()
+    {
+        return view('home/home');
+    }
+
+    public function register()
+    {
+        return "Hello from our controller";
+    }
 }
