@@ -68,7 +68,7 @@
           </div>
 
           <div class="container-edit-post">
-            <a href="/edit-post/{{$post->id}}">edit</a>
+            <a href="/edit-post/edit-post/{{$post->id}}">edit</a>
           </div>
 
           <div class="container-delet-post">

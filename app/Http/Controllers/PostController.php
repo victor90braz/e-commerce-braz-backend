@@ -24,6 +24,6 @@ class PostController extends Controller
   }
 
   public function editPost(Post $post) {
-    return view("edit-post", ['post' => $post]);
+    return view("/edit-post/edit-post", ['post' => $post]);
   }
 }
