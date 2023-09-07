@@ -63,7 +63,7 @@
       <h2>all posts</h2>
       @foreach ($posts as $post)
           <div class="container-post">
-            <h3>{{$post['title']}}</h3>
+            <h3>{{$post['title']}} by {{$post->user->name}}</h3>
             {{$post['body']}}
           </div>
 
