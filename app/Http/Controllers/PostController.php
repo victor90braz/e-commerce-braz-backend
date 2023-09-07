@@ -24,6 +24,32 @@ class PostController extends Controller
   }
 
   public function editPost(Post $post) {
+
+    if (auth()->user()->id !== $post["user_id"]) {
+      return redirect("/");
+    }
+
     return view("/edit-post/edit-post", ['post' => $post]);
+  }
+
+  public function updatePost(Post $post, Request $request) {
+
+    if (auth()->user()->id !== $post["user_id"]) {
+      return redirect("/");
+    }
+
+    $checkFields = [
+      "title" => "required",
+      "body" => "required"
+    ];
+
+    $checkFields = $request->validate($checkFields);
+
+    $checkFields["title"] = strip_tags($checkFields["title"]);
+    $checkFields["body"] = strip_tags($checkFields["body"]);
+
+    $post->update($checkFields);
+
+    return redirect("/");
   }
 }
