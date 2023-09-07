@@ -28,6 +28,12 @@
         border: 2px solid red
       }
 
+      .container-post{
+        background-color: gray;
+        padding:10px;
+        margin:10px
+      }
+
       h2, button{
         text-transform: uppercase
       }
@@ -51,6 +57,16 @@
         <textarea name="body" placeholder="body content..."></textarea>
         <button>save post</button>
       </form>
+    </div>
+
+    <div class="container-all-posts">
+      <h2>all posts</h2>
+      @foreach ($posts as $post)
+          <div class="container-post">
+            <h3>{{$post['title']}}</h3>
+            {{$post['body']}}
+          </div>
+      @endforeach
     </div>
 
   @else
