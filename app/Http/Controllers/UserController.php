@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 class UserController extends Controller
 {
     public function home() {
-        $posts = Post::all();
+        $posts = Post::where("user_id", auth()->id())->get();
         return view('home/home', ['posts' => $posts]);
     }
 
