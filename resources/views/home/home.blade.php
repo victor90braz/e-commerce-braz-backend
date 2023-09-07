@@ -72,7 +72,7 @@
           </div>
 
           <div class="container-delet-post">
-            <form action="/delete-post/{{$post->id}}" method="POST">
+            <form action="/delete-post/edit-post/{{$post->id}}" method="POST">
             @csrf
             @method("DELETE")
             <button>delete</button>

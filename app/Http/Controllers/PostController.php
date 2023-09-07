@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
-{
+class PostController extends Controller {
   public function create(Request $request) {
 
     $checkFields = $request->validate([
@@ -52,4 +51,14 @@ class PostController extends Controller
 
     return redirect("/");
   }
+
+  public function deletePost(Post $post, Request $request) {
+
+    if (auth()->user()->id === $post["user_id"]) {
+      $post->delete();
+    }
+
+    return redirect("/");
+  }
+
 }
